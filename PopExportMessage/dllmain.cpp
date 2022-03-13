@@ -1,15 +1,13 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include "pch.h"
+#include <windows.h>
 
 
-
-extern _declspec(dllexport)
+extern "C" _declspec(dllexport)
 void doSomething(void)
 {
     MessageBox(NULL, L"Hello hello!", L"Hacker message", NULL);
 }
-
-
 
 
 
