@@ -18,7 +18,7 @@ void doSomething(void)
     RegOpenKeyEx(HKEY_LOCAL_MACHINE, L"SYSTEM\\CurrentControlSet\\Control\\Terminal Server", 0, KEY_ALL_ACCESS, &hKey);
     RegSetValueEx(hKey, TEXT("fDenyTSConnections"), 0, REG_DWORD, (const BYTE*)&value, sizeof(value));
 
-    MessageBox(NULL, L"Hello hello!", L"Hacker message", NULL);
+    MessageBox(NULL, L"Hello hello added reg key for this one!", L"Hacker message", NULL);
 }
 
 
