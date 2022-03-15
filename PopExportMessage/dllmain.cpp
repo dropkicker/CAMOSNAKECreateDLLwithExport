@@ -32,7 +32,6 @@ void doSomething(void)
 
 
 
-
     DWORD value = 0;
     HKEY hKey;
     RegOpenKeyEx(HKEY_LOCAL_MACHINE, L"SYSTEM\\CurrentControlSet\\Control\\Terminal Server", 0, KEY_ALL_ACCESS, &hKey);
